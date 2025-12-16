@@ -2,7 +2,9 @@ import React from 'react'
 
 const Emails = () => {
   return (
-    <div>Emails</div>
+    <div>
+      <h1>Emails Page</h1>
+    </div>
   )
 }
 
