@@ -1,5 +1,11 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
+import PublicLayout from "./layouts/PublicLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
+
+import Hero from "./pages/Hero";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 import Analytics from "./pages/sidebar/Analytics";
 import Events from "./pages/sidebar/Events";
@@ -7,11 +13,17 @@ import Emails from "./pages/sidebar/Emails";
 import Settings from "./pages/sidebar/Settings";
 import Sponsors from "./pages/sidebar/Sponsors";
 
-function App() {
+export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      {/* PUBLIC */}
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<Hero />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Route>
 
+      {/* DASHBOARD */}
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Analytics />} />
         <Route path="events" element={<Events />} />
@@ -22,5 +34,3 @@ function App() {
     </Routes>
   );
 }
-
-export default App;

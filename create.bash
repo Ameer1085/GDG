@@ -1,15 +1,14 @@
 #!/bin/bash
 
 # create folders
+mkdir -p src/components/shared
 mkdir -p src/layouts
-mkdir -p src/pages/dashboard
-mkdir -p src/pages/sidebar
+mkdir -p src/pages
 mkdir -p src/router
 
 # create layout files
 touch src/layouts/DashboardLayout.jsx
-touch src/layouts/Navbar.jsx
-touch src/layouts/Sidebar.jsx
+touch src/layouts/PublicLayout.jsx
 
 # dashboard pages
 touch src/pages/dashboard/Overview.jsx
@@ -33,5 +32,5 @@ touch src/router/index.jsx
 # main files
 touch src/main.jsx
 touch src/App.jsx
-
-echo "Project structure created successfully!"
+touch src/App.css
+touch index.css
