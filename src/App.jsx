@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import PublicLayout from "./layouts/PublicLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
+import ProtectedRoute from "./components/shared/ProtectedRoute";
 
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
@@ -23,8 +24,15 @@ export default function App() {
         <Route path="/signup" element={<Signup />} />
       </Route>
 
-      {/* DASHBOARD */}
-      <Route path="/dashboard" element={<DashboardLayout />}>
+      {/* PROTECTED DASHBOARD */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Analytics />} />
         <Route path="events" element={<Events />} />
         <Route path="emails" element={<Emails />} />
